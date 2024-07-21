@@ -1,0 +1,68 @@
+{% extends 'chatapp/base.html' %}
+
+{% block title %}Sign up | {% endblock %}
+
+{% block body %}
+{% block css %}
+<style>
+.btn {
+    --bs-btn-padding-x: 3.75rem;
+    /* padding-top: 16px; */
+    height: 55px;
+    margin-top: 13px;
+
+}
+.w-full {
+  width: 100%;
+  height: 56px;
+  font-size: 19px;
+}
+.label {
+  font-size: 20px;
+  margin-bottom: 13px;
+}
+</style>
+{% endblock css %}
+
+
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-black">Sign up</h1>
+</div>
+
+<form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
+    {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="fname" class="text-black label">Enter your Name</label>
+        <input type="text" class="w-full mt-2 px-4 py-2 rounded-xl" id="username" name="username"  placeholder=" username" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="email" class="text-black">Enter your Email</label>
+        <input type="email" class="w-full mt-2 px-4 py-2 rounded-xl" id="email" aria-describedby="emailHelp" placeholder="Email" name="email" required >
+      </div>
+      <div class="mb-3">
+        <label for="pass1" class="text-black">Enter your Password</label>
+        <input type="password" class="w-full mt-2 px-4 py-2 rounded-xl" id="password1" placeholder="Password" name="password1" required>
+      </div>
+      <div class="mb-3">
+        <label for="pass2" class="text-black">Confirm your Password</label>
+        <input type="password" class="w-full mt-2 px-4 py-2 rounded-xl" id="password2"placeholder="Confirm your Password" name="password2" required>
+      </div>
+    
+    
+
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %} 
+                <div class="mb-4 p-4 rounded-xl bg-red-300 text-black">
+                    <p>{{ error|escape }}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary text-black mx-2">Submit</button>
+    <br>
+</form>
+{% endblock %}

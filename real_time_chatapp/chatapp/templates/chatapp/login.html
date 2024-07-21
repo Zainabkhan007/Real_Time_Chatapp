@@ -1,0 +1,58 @@
+{% extends 'chatapp/base.html' %}
+
+{% block title %}Log in | {% endblock %}
+
+{% block body %}
+{% block css %}
+<style>
+.btn {
+    --bs-btn-padding-x: 3.75rem;
+    /* padding-top: 16px; */
+    height: 55px;
+    margin-top: 13px;
+
+}
+.w-full {
+    width: 100%;
+    height: 56px;
+    font-size: 19px;
+}
+.label {
+    font-size: 20px;
+    margin-bottom: 13px;
+  }
+
+</style>
+{% endblock css %}
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-black">Log in</h1>
+</div>
+
+<form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label class="text-black label">Username</label>
+
+        <input type="text" name="username" class="w-full mt-1 px-4 py-2 rounded-xl">
+    </div>
+
+    <div class="mb-3">
+        <label class="text-black">Password</label>
+
+        <input type="password" name="password" class="w-full mt-1 px-4 py-2 rounded-xl">
+    </div>
+
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %} 
+                <div class="mb-5 p-4 rounded-xl bg-red-300 text-black">
+                    <p>{{ error|escape }}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <button class="btn btn-primary text-black mx-2">Log in</button>
+</form>
+{% endblock %}

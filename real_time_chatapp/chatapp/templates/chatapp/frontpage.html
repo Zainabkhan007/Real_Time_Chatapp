@@ -1,0 +1,78 @@
+{% extends "chatapp/base.html" %}
+{% block title %}Django Chat app{% endblock title %}
+{% block css %}
+<style>
+  .head{
+    float:left;
+    width: 44%;
+    padding: 6rem;
+    margin-top: 55px;
+  }
+  p{
+    padding-top: 23px;
+    font-size: 22px;
+  }
+  .container {
+    float: right;
+    max-width: 1544px;
+    width: 553px;
+    margin-right: 376px;
+  }
+  .container-fluid {
+    float: right;
+    max-width: 1544px;
+    width: 553px;
+    margin-right: 376px;
+  }
+  img, video {
+    max-width: 185%;
+    height: auto;
+} 
+
+
+.form-control {
+  margin-left: 77px;
+  width: 23%;
+  padding: 1.375rem 0.75rem;
+}
+.mx-6 {
+  margin-left: 18.5rem;
+  margin-right: 2.5rem;
+  margin-top: -124px;
+  width: 196px;
+  height: 66px;
+  font-size: 20px;
+  background-color: #f10016;
+}
+  .form-control {
+   
+    border-color: black;
+    font-size: 22px;
+    background-color: rgb(242 242 243);
+  }
+  .button{
+    margin-top: -79px;
+    margin-left: 85px;
+  }
+</style>
+{% endblock css %}
+
+{% block body %} 
+ <div class="head lg:p-20 ">
+  <h1 class="lg:text-6xl text-black">Live Chat Software 
+    </h1>
+  <p>Live Chat is  A complete customer service platforn that delights your customers and fuels your faith</p>
+</div>  
+
+<div class="container cont">
+  <img  src="static\chatapp\images\chatbot-themes.webp" 
+  class= "small-right-image img" alt="" srcset="">
+    </div>
+
+  
+    <div class="col-auto">
+      
+      <a href="/login/" class=" button  btn p-3 btn-primary text-black mx-6">Login here </a>
+      <a href="/signup/" class=" btn p-3 btn-primary text-black mx-6">Sign up for free</a>
+    </div>
+{% endblock body %} 
